@@ -1,4 +1,4 @@
-Members = new Mongo.collection('members');
+Members = new Mongo.Collection('members');
 Members.attachSchema(new SimpleSchema({
   firstName: {
     type: String,
