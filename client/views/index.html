@@ -1,8 +1,33 @@
 <template name="adminPage">
-    <h1>Hello EVT ADMIN</h1>
-    <p>Testing</p>
+    <h1 style="text-align: center;">EVT ADMIN PAGE</h1>
+    <div class="container">
+        {{> quickForm collection="Members" id="memberForm" type="insert"}}
+    </div>
+    <div class="container">
+        <table class="table table-striped">
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Username</td>
+                <td>uId</td>
+                <td>Swipe Access</td>
+            </tr>
+
+
+            {{#each members}}
+            <tr>
+                <td>{{firstName}} {{lastName}}</td>
+                <td>{{email}}</td>
+                <td>{{username}}</td>
+                <td>{{uID}}</td>
+                <td>{{swipeString swipeAccess}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+
 </template>
 
 <template name="loading">
-    <p>loading</p>
+
 </template>
