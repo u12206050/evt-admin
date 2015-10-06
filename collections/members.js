@@ -1,5 +1,5 @@
 Members = new Mongo.collection('members');
-Contacts.attachSchema(new SimpleSchema({
+Members.attachSchema(new SimpleSchema({
   firstName: {
     type: String,
     label: "FirstName",
@@ -10,7 +10,7 @@ Contacts.attachSchema(new SimpleSchema({
   },
   email: {
     type: String,
-    label: "Email"
+    label: "Email",
     autoform: {
       omit: true
     },
