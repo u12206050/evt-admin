@@ -36,11 +36,20 @@ Members.attachSchema(new SimpleSchema({
     max: 9
   },
   swipeAccess: {
-    type: Boolean,
+    type: String,
     label: "Swipe",
     autoform: {
       omit: true
     },
+    autoValue: function() {
+      if (this.isInsert) {
+        return "False";
+      }
+    }
+  },
+  slackAccess:{
+    type: Boolean,
+    label: "Slack",
     autoValue: function() {
       if (this.isInsert) {
         return false;

@@ -1,0 +1,48 @@
+<template name="memberList">
+    {{#if isInRole 'admin'}}
+    <h3>Edit Selected Users</h3>
+    <!-- Large button group -->
+    <div class="btn-group">
+      <select id="swipeChange">
+        <option value="">None</option>
+        <option value="True">True</option>
+        <option value="False">False</option>
+        <option value="Pending">Send Email</option>
+      </select>
+    </div>
+
+    <button id="slack" class="btn btn-default">Update Slack</button>
+    <button id="updateSwipe" class="btn btn-default">Update</button>
+    <hr>
+    <h3>Members</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Select</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Username</td>
+                <td>uId</td>
+                <td>Swipe Access</td>
+                <td>Slack</td>
+            </tr>
+        </thead>
+        <tbody>
+        {{#each members}}
+            <tr>
+                <td>
+                  <input id="{{_id}}" class="check" type="checkbox" value="">
+                </td>
+                <td>{{firstName}} {{lastName}}</td>
+                <td>{{email}}</td>
+                <td>{{username}}</td>
+                <td>{{uID}}</td>
+                <td>{{swipeAccess}}</td>
+                <td>{{slackAccess}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    <button id="selectToggle" class="btn btn-default">Select/Deselect All</button>
+    {{/if}}
+</template>
