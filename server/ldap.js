@@ -68,7 +68,7 @@ Accounts.registerLoginHandler('ldap', function(loginRequest) {
   if (LDAP.checkAccount(loginRequest)) {
     user = Meteor.users.findOne({
       username: loginRequest.username.trim().toLowerCase()
-    });    
+    });
     if (user) {
       userId = user._id;
       Meteor.users.update(userId, {$set: {displayName: LDAP.displayName}});
