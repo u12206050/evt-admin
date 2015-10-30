@@ -12,7 +12,7 @@ Members.attachSchema(new SimpleSchema({
     type: String,
     label: "Email",
     autoform: {
-      omit: true
+      omit: true 
     },
     autoValue: function() {
       if (this.isInsert) {
