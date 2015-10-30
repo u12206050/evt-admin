@@ -4,7 +4,7 @@ Meteor.publish('members', function () {
   }
 });
 
-Metoer.publish('member', function(username) {
+Meteor.publish('member', function(username) {
   return Members.find({username:username},{});
 });
 
