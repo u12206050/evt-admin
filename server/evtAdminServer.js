@@ -1,4 +1,4 @@
-var adminList = ["wpl3499", "sgweb"];
+var adminList = ["wpl3499", "sgweb", "evt"];
 
 for(var i = 0; i < adminList.length; i++){
   if (Meteor.users.find({username: adminList[i]}).count() === 0) {
