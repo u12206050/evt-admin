@@ -12,7 +12,7 @@ Members.attachSchema(new SimpleSchema({
     type: String,
     label: "Email",
     autoform: {
-      omit: true 
+      omit: true
     },
     autoValue: function() {
       if (this.isInsert) {
@@ -36,14 +36,14 @@ Members.attachSchema(new SimpleSchema({
     max: 9
   },
   swipeAccess: {
-    type: Boolean,
+    type: String,
     label: "Swipe",
     autoform: {
       omit: true
     },
     autoValue: function() {
       if (this.isInsert) {
-        return false;
+        return "False";
       }
     }
   },
