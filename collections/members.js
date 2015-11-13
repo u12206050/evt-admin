@@ -47,6 +47,15 @@ Members.attachSchema(new SimpleSchema({
       }
     }
   },
+  slackAccess:{
+    type: Boolean,
+    label: "Slack",
+    autoValue: function() {
+      if (this.isInsert) {
+        return false;
+      }
+    }
+  },
   createdAt: {
     type: Date,
     autoform: {

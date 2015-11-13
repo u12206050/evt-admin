@@ -10,9 +10,12 @@ Template.memberList.events({
     $('input[type=checkbox]').each(function() {
       $(this).prop('checked', Session.get("selectToggle"));
     });
-
+  },
+  'click #slack':function(){
+    Meteor.call('updateSlack');
   },
   'click #updateSwipe':function(){
+    //Get val from select
     var val = $('#swipeChange').val();
     console.log(val);
     var emailStr = "";

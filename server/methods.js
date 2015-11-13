@@ -17,6 +17,13 @@ Meteor.methods({
         text: text
       });
     }
+  },
+  updateSlack: function(){
+    console.log('slacking!');
 
+    SlackAPI.users.list(Meteor.settings.SLACK_TOKEN, function(err,res){
+        console.log(err); // will return {"ok":false, "error":1, "args":{good:1, error:1}}
+        console.log(res); // will return undefined
+    });
   }
 });
