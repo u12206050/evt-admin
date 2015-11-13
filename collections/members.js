@@ -2,7 +2,7 @@ Members = new Mongo.Collection('members');
 Members.attachSchema(new SimpleSchema({
   firstName: {
     type: String,
-    label: "FirstName",
+    label: "First Name",
   },
   lastName: {
     type: String,
@@ -18,7 +18,7 @@ Members.attachSchema(new SimpleSchema({
       if (this.isInsert) {
         var username = this.field("username");
         if (username.isSet) {
-          return content.value + "@rit.edu";
+          return username.value + "@rit.edu";
         } else {
           this.unset();
         }
@@ -30,16 +30,26 @@ Members.attachSchema(new SimpleSchema({
     label: "Username"
   },
   uID: {
-    type: Number,
+    type: String,
     label: "University ID #",
+    min: 9,
     max: 9
   },
   swipeAccess: {
-    type: Boolean,
+    type: String,
     label: "Swipe",
     autoform: {
       omit: true
     },
+    autoValue: function() {
+      if (this.isInsert) {
+        return "False";
+      }
+    }
+  },
+  slackAccess:{
+    type: Boolean,
+    label: "Slack",
     autoValue: function() {
       if (this.isInsert) {
         return false;
