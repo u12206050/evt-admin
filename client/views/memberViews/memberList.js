@@ -1,4 +1,12 @@
-
+Template.memberList.helpers({
+  'bool2String':function(e){
+    if(e){
+      return 'True';
+    }else {
+      return 'False';
+    }
+  }
+});
 
 Template.memberList.events({
   'click #selectToggle':function(){

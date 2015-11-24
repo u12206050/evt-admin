@@ -50,8 +50,12 @@ Members.attachSchema(new SimpleSchema({
   slackAccess:{
     type: Boolean,
     label: "Slack",
+    autoform: {
+      omit: true
+    },
     autoValue: function() {
       if (this.isInsert) {
+        console.log("Damn autoValue")
         return false;
       }
     }

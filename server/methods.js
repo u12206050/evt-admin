@@ -22,8 +22,26 @@ Meteor.methods({
     console.log('slacking!');
 
     SlackAPI.users.list(Meteor.settings.SLACK_TOKEN, function(err,res){
-        console.log(err); // will return {"ok":false, "error":1, "args":{good:1, error:1}}
-        console.log(res); // will return undefined
+        //console.log(err); // will return {"ok":false, "error":1, "args":{good:1, error:1}}
+        console.log(res.members[0]); // will return undefined
+        var users = Members.find({}, {_id:1,email:1}).fetch();
+        console.log(users);
+        var members = res.members;
+        for(var i = 0; i < users.length; i++){
+          var email = users[i].email;
+          console.log(email);
+          var found = false;
+          for(var j = 0; j < members.length; j++){
+            if(members[j].profile.email == email){
+              found = true;
+              break;
+            }
+          }
+          Members.update({_id:users[i]._id}, {$set: {slackAccess:found}});
+          console.log(found);
+        }
     });
+
+
   }
 });
